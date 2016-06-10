@@ -19,22 +19,22 @@
 %%      to United Nations numerical code M49 for countries.
 %% @end
 to_numerical_code(Country) when is_list(Country) -> to_numerical_code(list_to_bitstring(Country));
-to_numerical_code(Country) when bit_size(Country) =:= 2 -> alpha_2_to_numerical_code(Country);
-to_numerical_code(Country) when bit_size(Country) =:= 3 -> alpha_3_to_numerical_code(Country).
+to_numerical_code(Country) when bit_size(Country) =:= 16 -> alpha_2_to_numerical_code(Country);
+to_numerical_code(Country) when bit_size(Country) =:= 24 -> alpha_3_to_numerical_code(Country).
 
 %% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
 %%      to Country names.
 %% @end
 to_country_name(Country) when is_list(Country) -> to_country_name(list_to_bitstring(Country));
-to_country_name(Country) when bit_size(Country) =:= 2 -> alpha_2_to_name(Country);
-to_country_name(Country) when bit_size(Country) =:= 3 -> alpha_3_to_name(Country).
+to_country_name(Country) when bit_size(Country) =:= 16 -> alpha_2_to_name(Country);
+to_country_name(Country) when bit_size(Country) =:= 24 -> alpha_3_to_name(Country).
 
 %% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2) OR
 %%      a valid three letter country code (ISO alpha-3).
 %% @end
 is_country(Country) when is_list(Country) -> is_country(list_to_bitstring(Country));
-is_country(Country) when bit_size(Country) =:= 2 -> is_alpha_2(Country);
-is_country(Country) when bit_size(Country) =:= 3 -> is_alpha_3(Country);
+is_country(Country) when bit_size(Country) =:= 16 -> is_alpha_2(Country);
+is_country(Country) when bit_size(Country) =:= 24 -> is_alpha_3(Country);
 is_country(_Other) -> false.
 
 %% @doc Checks if the given bitstring is a valid three letter country code (ISO alpha-3).
