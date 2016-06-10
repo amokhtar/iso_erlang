@@ -23,48 +23,59 @@
 %% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
 %%      to United Nations numerical code M49 for countries.
 %% @end
+-spec to_numerical_code(bitstring() | string()) -> integer().
 to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_numerical_code_upper(normalize(Country)).
 
 %% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
 %%      to Country names.
 %% @end
+-spec to_country_name(bitstring() | string()) -> bitstring().
 to_country_name(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_country_name_upper(normalize(Country)).
 
 %% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2) OR
 %%      a valid three letter country code (ISO alpha-3).
 %% @end
+-spec is_country(bitstring() | string()) -> boolean().
 is_country(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_validator:is_country_upper(normalize(Country)).
 
 %% @doc Checks if the given bitstring is a valid three letter country code (ISO alpha-3).
 %% @end
+-spec is_alpha_3(bitstring() | string()) -> boolean().
 is_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_validator:is_alpha_3_upper(normalize(Country)).
 
 %% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2).
 %% @end
+-spec is_alpha_2(bitstring() | string()) -> boolean().
 is_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_validator:is_alpha_2_upper(normalize(Country)).
 
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent three letter country code (ISO alpha-3)
 %% @end
+-spec to_alpha_3(bitstring() | string()) -> bitstring().
 to_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_alpha_3_upper(normalize(Country)).
 
 %% @doc Converts three letter country code (ISO alpha-3) to the equivalent two letter country code (ISO alpha-2)
 %% @end
+-spec to_alpha_2(bitstring() | string()) -> bitstring().
 to_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_alpha_2_upper(normalize(Country)).
 
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent country name
 %% @end
+-spec alpha_2_to_name(bitstring() | string()) -> bitstring().
 alpha_2_to_name(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:alpha_2_to_name_upper(normalize(Country)).
 
 %% @doc Converts three letter country code (ISO alpha-3) to the equivalent country name
 %% @end
+-spec alpha_3_to_name(bitstring() | string()) -> bitstring().
 alpha_3_to_name(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:alpha_3_to_name_upper(normalize(Country)).
 
 %% @doc Converts three letter country code (ISO alpha-3) to the equivalent United Nations numerical code M49 for countries.
 %% @end
+-spec alpha_3_to_numerical_code(bitstring() | string()) -> integer().
 alpha_3_to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:alpha_3_to_numerical_code_upper(normalize(Country)).
 
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent United Nations numerical code M49 for countries.
 %% @end
+-spec alpha_2_to_numerical_code(bitstring() | string()) -> integer().
 alpha_2_to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:alpha_2_to_numerical_code_upper(normalize(Country)).
 
 normalize(String) when is_list(String) ->
