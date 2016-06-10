@@ -1,5 +1,5 @@
 # countries_erlang
-This erlang package allows for fast case-insensitive validation and conversion between ISO Alpha-2, Alpha-3, and Numeric Country Codes conversions. 
+This erlang package allows for fast case-insensitive validation and conversion between ISO Alpha-2, Alpha-3, and Numeric Country Codes. 
 
 # Example uses:
 ## Validation
