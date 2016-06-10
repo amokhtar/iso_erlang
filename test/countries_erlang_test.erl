@@ -60,11 +60,17 @@ to_alpha_2_correct_test() ->
     ?assertEqual(<<"EG">>, countries_erlang:to_alpha_2("EGY")),
     ?assertEqual(<<"US">>, countries_erlang:to_alpha_2("USA")).
 
+to_alpha_2_already_correct_test() ->
+    ?assertEqual(<<"EG">>, countries_erlang:to_alpha_2(<<"EG">>)),
+    ?assertEqual(<<"US">>, countries_erlang:to_alpha_2(<<"US">>)),
+    ?assertEqual(<<"EG">>, countries_erlang:to_alpha_2("EG")),
+    ?assertEqual(<<"US">>, countries_erlang:to_alpha_2("US")).
+
 to_alpha_2_incorrect_test() ->
-    ?assertError((_), countries_erlang:to_alpha_2(<<"EG">>)),
-    ?assertError((_), countries_erlang:to_alpha_2(<<"AAA">>)),
-    ?assertError((_), countries_erlang:to_alpha_2("EG")),
-    ?assertError((_), countries_erlang:to_alpha_2("AAA")).
+    ?assertError(_, countries_erlang:to_alpha_2(<<"EGR">>)),
+    ?assertError(_, countries_erlang:to_alpha_2(<<"AAA">>)),
+    ?assertError(_, countries_erlang:to_alpha_2("EGs")),
+    ?assertError(_, countries_erlang:to_alpha_2("AAA")).
 
 to_alpha_3_correct_test() ->
     ?assertEqual(<<"EGY">>, countries_erlang:to_alpha_3(<<"EG">>)),
@@ -72,11 +78,17 @@ to_alpha_3_correct_test() ->
     ?assertEqual(<<"EGY">>, countries_erlang:to_alpha_3("EG")),
     ?assertEqual(<<"USA">>, countries_erlang:to_alpha_3("US")).
 
+to_alpha_3_already_correct_test() ->
+    ?assertEqual(<<"EGY">>, countries_erlang:to_alpha_3(<<"EGY">>)),
+    ?assertEqual(<<"USA">>, countries_erlang:to_alpha_3(<<"USA">>)),
+    ?assertEqual(<<"EGY">>, countries_erlang:to_alpha_3("EGY")),
+    ?assertEqual(<<"USA">>, countries_erlang:to_alpha_3("USA")).
+
 to_alpha_3_incorrect_test() ->
-    ?assertError((_), countries_erlang:to_alpha_3(<<"EGY">>)),
-    ?assertError((_), countries_erlang:to_alpha_3(<<"AAA">>)),
-    ?assertError((_), countries_erlang:to_alpha_3("EGY")),
-    ?assertError((_), countries_erlang:to_alpha_3("AAA")).
+    ?assertError(_, countries_erlang:to_alpha_3(<<"EGR">>)),
+    ?assertError(_, countries_erlang:to_alpha_3(<<"AAA">>)),
+    ?assertError(_, countries_erlang:to_alpha_3("EGs")),
+    ?assertError(_, countries_erlang:to_alpha_3("AAA")).
 
 alpha_2_to_name_correct_test() ->
     ?assertEqual(<<"Egypt">>, countries_erlang:alpha_2_to_name(<<"EG">>)),
@@ -85,10 +97,10 @@ alpha_2_to_name_correct_test() ->
     ?assertEqual(<<"United States of America">>, countries_erlang:alpha_2_to_name("US")).
 
 alpha_2_to_name_incorrect_test() ->
-    ?assertError((_), countries_erlang:alpha_2_to_name(<<"EGY">>)),
-    ?assertError((_), countries_erlang:alpha_2_to_name(<<"USA">>)),
-    ?assertError((_), countries_erlang:alpha_2_to_name("ABC")),
-    ?assertError((_), countries_erlang:alpha_2_to_name("AAA")).
+    ?assertError(_, countries_erlang:alpha_2_to_name(<<"EGY">>)),
+    ?assertError(_, countries_erlang:alpha_2_to_name(<<"USA">>)),
+    ?assertError(_, countries_erlang:alpha_2_to_name("ABC")),
+    ?assertError(_, countries_erlang:alpha_2_to_name("AAA")).
 
 alpha_3_to_name_correct_test() ->
     ?assertEqual(<<"Egypt">>, countries_erlang:alpha_3_to_name(<<"EGY">>)),
@@ -97,10 +109,10 @@ alpha_3_to_name_correct_test() ->
     ?assertEqual(<<"United States of America">>, countries_erlang:alpha_3_to_name("USA")).
 
 alpha_3_to_name_incorrect_test() ->
-    ?assertError((_), countries_erlang:alpha_3_to_name(<<"EG">>)),
-    ?assertError((_), countries_erlang:alpha_3_to_name(<<"US">>)),
-    ?assertError((_), countries_erlang:alpha_3_to_name("ABA")),
-    ?assertError((_), countries_erlang:alpha_3_to_name("AA")).
+    ?assertError(_, countries_erlang:alpha_3_to_name(<<"EG">>)),
+    ?assertError(_, countries_erlang:alpha_3_to_name(<<"US">>)),
+    ?assertError(_, countries_erlang:alpha_3_to_name("ABA")),
+    ?assertError(_, countries_erlang:alpha_3_to_name("AA")).
 
 to_country_name_correct_test() ->
     ?assertEqual(<<"Egypt">>, countries_erlang:to_country_name(<<"EGY">>)),
@@ -113,10 +125,10 @@ to_country_name_correct_test() ->
     ?assertEqual(<<"United States of America">>, countries_erlang:to_country_name("US")).
 
 to_country_name_incorrect_test() ->
-    ?assertError((_), countries_erlang:to_country_name(<<"ABC">>)),
-    ?assertError((_), countries_erlang:to_country_name(<<"AAA">>)),
-    ?assertError((_), countries_erlang:to_country_name("ABC")),
-    ?assertError((_), countries_erlang:to_country_name("AAA")).
+    ?assertError(_, countries_erlang:to_country_name(<<"ABC">>)),
+    ?assertError(_, countries_erlang:to_country_name(<<"AAA">>)),
+    ?assertError(_, countries_erlang:to_country_name("ABC")),
+    ?assertError(_, countries_erlang:to_country_name("AAA")).
 
 alpha_2_to_numerical_code_correct_test() ->
     ?assertEqual(818, countries_erlang:alpha_2_to_numerical_code(<<"EG">>)),
@@ -125,10 +137,10 @@ alpha_2_to_numerical_code_correct_test() ->
     ?assertEqual(840, countries_erlang:alpha_2_to_numerical_code("US")).
 
 alpha_2_to_numerical_code_incorrect_test() ->
-    ?assertError((_), countries_erlang:alpha_2_to_numerical_code(<<"EGY">>)),
-    ?assertError((_), countries_erlang:alpha_2_to_numerical_code(<<"USA">>)),
-    ?assertError((_), countries_erlang:alpha_2_to_numerical_code("EGY")),
-    ?assertError((_), countries_erlang:alpha_2_to_numerical_code("USA")).
+    ?assertError(_, countries_erlang:alpha_2_to_numerical_code(<<"EGY">>)),
+    ?assertError(_, countries_erlang:alpha_2_to_numerical_code(<<"USA">>)),
+    ?assertError(_, countries_erlang:alpha_2_to_numerical_code("EGY")),
+    ?assertError(_, countries_erlang:alpha_2_to_numerical_code("USA")).
 
 alpha_3_to_numerical_code_correct_test() ->
     ?assertEqual(818, countries_erlang:alpha_3_to_numerical_code(<<"EGY">>)),
@@ -137,10 +149,10 @@ alpha_3_to_numerical_code_correct_test() ->
     ?assertEqual(840, countries_erlang:alpha_3_to_numerical_code("USA")).
 
 alpha_3_to_numerical_code_incorrect_test() ->
-    ?assertError((_), countries_erlang:alpha_3_to_numerical_code(<<"EG">>)),
-    ?assertError((_), countries_erlang:alpha_3_to_numerical_code(<<"US">>)),
-    ?assertError((_), countries_erlang:alpha_3_to_numerical_code("EG")),
-    ?assertError((_), countries_erlang:alpha_3_to_numerical_code("US")).
+    ?assertError(_, countries_erlang:alpha_3_to_numerical_code(<<"EG">>)),
+    ?assertError(_, countries_erlang:alpha_3_to_numerical_code(<<"US">>)),
+    ?assertError(_, countries_erlang:alpha_3_to_numerical_code("EG")),
+    ?assertError(_, countries_erlang:alpha_3_to_numerical_code("US")).
 
 to_numerical_code_correct_test() ->
     ?assertEqual(818, countries_erlang:to_numerical_code(<<"EGY">>)),
@@ -153,10 +165,10 @@ to_numerical_code_correct_test() ->
     ?assertEqual(840, countries_erlang:to_numerical_code("US")).
 
 to_numerical_code_incorrect_test() ->
-    ?assertError((_), countries_erlang:to_numerical_code(<<"EsdG">>)),
-    ?assertError((_), countries_erlang:to_numerical_code(<<"UsS">>)),
-    ?assertError((_), countries_erlang:to_numerical_code("EGs")),
-    ?assertError((_), countries_erlang:to_numerical_code("sUS")).
+    ?assertError(_, countries_erlang:to_numerical_code(<<"EsdG">>)),
+    ?assertError(_, countries_erlang:to_numerical_code(<<"UsS">>)),
+    ?assertError(_, countries_erlang:to_numerical_code("EGs")),
+    ?assertError(_, countries_erlang:to_numerical_code("sUS")).
 
 normalize_test() ->
     ?assertEqual(<<"HELLO">>, countries_erlang:normalize(<<"Hello">>)),

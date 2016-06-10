@@ -51,12 +51,22 @@ is_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -> countr
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent three letter country code (ISO alpha-3)
 %% @end
 -spec to_alpha_3(bitstring() | string()) -> bitstring().
-to_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_alpha_3_upper(normalize(Country)).
+to_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) ->
+    NormalizedCountry = normalize(Country),
+    case is_alpha_3(NormalizedCountry) of
+        true -> NormalizedCountry;
+        false -> countries_erlang_converter:to_alpha_3_upper(NormalizedCountry)
+    end.
 
 %% @doc Converts three letter country code (ISO alpha-3) to the equivalent two letter country code (ISO alpha-2)
 %% @end
 -spec to_alpha_2(bitstring() | string()) -> bitstring().
-to_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_alpha_2_upper(normalize(Country)).
+to_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) ->
+    NormalizedCountry = normalize(Country),
+    case is_alpha_2(NormalizedCountry) of
+        true -> NormalizedCountry;
+        false -> countries_erlang_converter:to_alpha_2_upper(NormalizedCountry)
+    end.
 
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent country name
 %% @end
