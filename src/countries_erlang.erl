@@ -15,16 +15,31 @@
     to_numerical_code/1
 ]).
 
+%% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
+%%      to United Nations numerical code M49 for countries.
+%% @end
+to_numerical_code(Country) when is_list(Country) -> to_numerical_code(list_to_bitstring(Country));
 to_numerical_code(Country) when bit_size(Country) =:= 2 -> alpha_2_to_numerical_code(Country);
 to_numerical_code(Country) when bit_size(Country) =:= 3 -> alpha_3_to_numerical_code(Country).
 
+%% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
+%%      to Country names.
+%% @end
+to_country_name(Country) when is_list(Country) -> to_country_name(list_to_bitstring(Country));
 to_country_name(Country) when bit_size(Country) =:= 2 -> alpha_2_to_name(Country);
 to_country_name(Country) when bit_size(Country) =:= 3 -> alpha_3_to_name(Country).
 
+%% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2) OR
+%%      a valid three letter country code (ISO alpha-3).
+%% @end
+is_country(Country) when is_list(Country) -> is_country(list_to_bitstring(Country));
 is_country(Country) when bit_size(Country) =:= 2 -> is_alpha_2(Country);
 is_country(Country) when bit_size(Country) =:= 3 -> is_alpha_3(Country);
 is_country(_Other) -> false.
 
+%% @doc Checks if the given bitstring is a valid three letter country code (ISO alpha-3).
+%% @end
+is_alpha_3(Country) when is_list(Country) -> is_alpha_3(list_to_bitstring(Country));
 is_alpha_3(<<"AFG">>) -> true;
 is_alpha_3(<<"ALA">>) -> true;
 is_alpha_3(<<"ALB">>) -> true;
@@ -274,6 +289,9 @@ is_alpha_3(<<"ZMB">>) -> true;
 is_alpha_3(<<"ZWE">>) -> true;
 is_alpha_3(_Other) -> false.
 
+%% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2).
+%% @end
+is_alpha_2(Country) when is_list(Country) -> is_alpha_2(list_to_bitstring(Country));
 is_alpha_2(<<"AF">>) -> true;
 is_alpha_2(<<"AX">>) -> true;
 is_alpha_2(<<"AL">>) -> true;
@@ -523,6 +541,9 @@ is_alpha_2(<<"ZM">>) -> true;
 is_alpha_2(<<"ZW">>) -> true;
 is_alpha_2(_Other) -> false.
 
+%% @doc Converts two letter country code (ISO alpha-2) to the equivalent three letter country code (ISO alpha-3)
+%% @end
+to_alpha_3(Country) when is_list(Country) -> to_alpha_3(list_to_bitstring(Country));
 to_alpha_3(<<"AF">>) -> <<"AFG">>;
 to_alpha_3(<<"AX">>) -> <<"ALA">>;
 to_alpha_3(<<"AL">>) -> <<"ALB">>;
@@ -771,6 +792,9 @@ to_alpha_3(<<"YE">>) -> <<"YEM">>;
 to_alpha_3(<<"ZM">>) -> <<"ZMB">>;
 to_alpha_3(<<"ZW">>) -> <<"ZWE">>.
 
+%% @doc Converts three letter country code (ISO alpha-3) to the equivalent two letter country code (ISO alpha-2)
+%% @end
+to_alpha_2(Country) when is_list(Country) -> to_alpha_2(list_to_bitstring(Country));
 to_alpha_2(<<"AFG">>) -> <<"AF">>;
 to_alpha_2(<<"ALA">>) -> <<"AX">>;
 to_alpha_2(<<"ALB">>) -> <<"AL">>;
@@ -1019,6 +1043,9 @@ to_alpha_2(<<"YEM">>) -> <<"YE">>;
 to_alpha_2(<<"ZMB">>) -> <<"ZM">>;
 to_alpha_2(<<"ZWE">>) -> <<"ZW">>.
 
+%% @doc Converts two letter country code (ISO alpha-2) to the equivalent country name
+%% @end
+alpha_2_to_name(Country) when is_list(Country) -> alpha_2_to_name(list_to_bitstring(Country));
 alpha_2_to_name(<<"AF">>) -> <<"Afghanistan">>;
 alpha_2_to_name(<<"AX">>) -> <<"Aland Islands">>;
 alpha_2_to_name(<<"AL">>) -> <<"Albania">>;
@@ -1267,6 +1294,9 @@ alpha_2_to_name(<<"YE">>) -> <<"Yemen">>;
 alpha_2_to_name(<<"ZM">>) -> <<"Zambia">>;
 alpha_2_to_name(<<"ZW">>) -> <<"Zimbabwe">>.
 
+%% @doc Converts three letter country code (ISO alpha-3) to the equivalent country name
+%% @end
+alpha_3_to_name(Country) when is_list(Country) -> alpha_3_to_name(list_to_bitstring(Country));
 alpha_3_to_name(<<"AFG">>) -> <<"Afghanistan">>;
 alpha_3_to_name(<<"ALA">>) -> <<"Aland Islands">>;
 alpha_3_to_name(<<"ALB">>) -> <<"Albania">>;
@@ -1515,6 +1545,9 @@ alpha_3_to_name(<<"YEM">>) -> <<"Yemen">>;
 alpha_3_to_name(<<"ZMB">>) -> <<"Zambia">>;
 alpha_3_to_name(<<"ZWE">>) -> <<"Zimbabwe">>.
 
+%% @doc Converts three letter country code (ISO alpha-3) to the equivalent United Nations numerical code M49 for countries.
+%% @end
+alpha_3_to_numerical_code(Country) when is_list(Country) -> alpha_3_to_numerical_code(list_to_bitstring(Country));
 alpha_3_to_numerical_code(<<"AFG">>) -> 4;
 alpha_3_to_numerical_code(<<"ALA">>) -> 248;
 alpha_3_to_numerical_code(<<"ALB">>) -> 8;
@@ -1763,6 +1796,9 @@ alpha_3_to_numerical_code(<<"YEM">>) -> 887;
 alpha_3_to_numerical_code(<<"ZMB">>) -> 894;
 alpha_3_to_numerical_code(<<"ZWE">>) -> 716.
 
+%% @doc Converts two letter country code (ISO alpha-2) to the equivalent United Nations numerical code M49 for countries.
+%% @end
+alpha_2_to_numerical_code(Country) when is_list(Country) -> alpha_2_to_numerical_code(list_to_bitstring(Country));
 alpha_2_to_numerical_code(<<"AF">>) -> 4;
 alpha_2_to_numerical_code(<<"AX">>) -> 248;
 alpha_2_to_numerical_code(<<"AL">>) -> 8;
