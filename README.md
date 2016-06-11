@@ -1,6 +1,8 @@
 # countries_erlang
 This erlang package allows for fast case-insensitive validation and conversion between ISO Alpha-2, Alpha-3, and Numeric Country Codes. 
-
+# Usage:
+To use countries_erlang in your application, you need to define it as a rebar dependency or include it in Erlang's path in another way.
+The hex.pm package can be found [here](https://hex.pm/packages/countries_erlang).
 # Example uses:
 ## Validation
 ### ISO Alpha-2
