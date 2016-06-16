@@ -176,3 +176,7 @@ normalize_test() ->
     ?assertEqual(<<"HELLO">>, countries_erlang:normalize("hello")),
     ?assertEqual(<<"HELLO">>, countries_erlang:normalize("HeLlO")).
 
+get_country_lists_test() ->
+    ?assertEqual(247, length(countries_erlang:get_alpha_2_country_list())),
+    ?assertEqual(247, length(countries_erlang:get_alpha_3_country_list())),
+    ?assertEqual(247, length(countries_erlang:get_country_name_list())).
