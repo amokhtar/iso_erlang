@@ -11,6 +11,9 @@
     alpha_3_to_name/1,
     alpha_2_to_numerical_code/1,
     alpha_3_to_numerical_code/1,
+    get_alpha_2_country_list/0,
+    get_alpha_3_country_list/0,
+    get_country_name_list/0,
     is_alpha_2/1,
     is_alpha_3/1,
     is_country/1,
@@ -20,9 +23,24 @@
     to_numerical_code/1
 ]).
 
-%% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
-%%      to United Nations numerical code M49 for countries.
+%% @doc Returns a list of all countries in ISO alpha-2 format
 %% @end
+-spec get_alpha_2_country_list() -> [bitstring()].
+get_alpha_2_country_list() ->
+    countries_erlang_lists:get_alpha_2_list().
+
+%% @doc Returns a list of all countries in ISO alpha-3 format
+%% @end
+-spec get_alpha_3_country_list() -> [bitstring()].
+get_alpha_3_country_list() ->
+    countries_erlang_lists:get_alpha_3_list().
+
+%% @doc Returns a list of all country names
+%% @end
+-spec get_country_name_list() -> [bitstring()].
+get_country_name_list() ->
+    countries_erlang_lists:get_country_name_list().
+
 -spec to_numerical_code(bitstring() | string()) -> integer().
 to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_numerical_code_upper(normalize(Country)).
 
