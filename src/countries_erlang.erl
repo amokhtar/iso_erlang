@@ -14,6 +14,7 @@
     get_alpha_2_country_list/0,
     get_alpha_3_country_list/0,
     get_country_name_list/0,
+    get_country_count/0,
     is_alpha_2/1,
     is_alpha_3/1,
     is_country/1,
@@ -40,6 +41,11 @@ get_alpha_3_country_list() ->
 -spec get_country_name_list() -> [bitstring()].
 get_country_name_list() ->
     countries_erlang_lists:get_country_name_list().
+
+%% @doc Returns the number of countries
+%% @end
+-spec get_country_count() -> integer().
+get_country_count() -> 247.
 
 -spec to_numerical_code(bitstring() | string()) -> integer().
 to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> countries_erlang_converter:to_numerical_code_upper(normalize(Country)).
