@@ -3,16 +3,16 @@
 %%% @doc Returns list of all countries
 %%% @end
 %%%-------------------------------------------------------------------
--module(countries_erlang_lists).
+-module(iso_erlang_lists).
 
 %% API
 -export([
-    get_alpha_2_list/0,
-    get_alpha_3_list/0,
-    get_country_name_list/0
+ get_alpha_2_country_list/0,
+ get_alpha_3_country_list/0,
+ get_country_name_list/0
 ]).
 
-get_alpha_2_list() ->
+get_alpha_2_country_list() ->
     [<<"AF">>,
      <<"AX">>,
      <<"AL">>,
@@ -261,7 +261,7 @@ get_alpha_2_list() ->
      <<"ZM">>,
      <<"ZW">>].
 
-get_alpha_3_list() ->
+get_alpha_3_country_list() ->
     [<<"AFG">>,
      <<"ALA">>,
      <<"ALB">>,

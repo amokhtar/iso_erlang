@@ -1,4 +1,4 @@
-{application, countries_erlang,
+{application, iso_erlang,
     [{description, "Fast case-insensitive validation and conversion between ISO Alpha-2, Alpha-3, and Numeric Country Codes."},
      {vsn, "0.5.0"},
      {registered, []},
@@ -11,5 +11,5 @@
 
      {maintainers, ["Ahmad Mokhtar", "Matheus Mendes", "Sasan Hezarkhani"]},
      {licenses, ["MIT"]},
-     {links, [{"Github", "https://github.com/amokhtar/countries_erlang"}]}
+     {links, [{"Github", "https://github.com/amokhtar/iso_erlang"}]}
     ]}.
