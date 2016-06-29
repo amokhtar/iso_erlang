@@ -7,24 +7,24 @@ The hex.pm package can be found [here](https://hex.pm/packages/iso_erlang).
 ## Validation
 ### ISO Alpha-2
 ```
-1> iso_erlang:is_alpha_2(<<"US">>).
+1> iso_erlang:is_country_alpha_2(<<"US">>).
 true
-2> iso_erlang:is_alpha_2("US").
+2> iso_erlang:is_country_alpha_2("US").
 true
-3> iso_erlang:is_alpha_2(<<"Us">>).
+3> iso_erlang:is_country_alpha_2(<<"Us">>).
 true
-4> iso_erlang:is_alpha_2("us").
+4> iso_erlang:is_country_alpha_2("us").
 true
 ```
 ### ISO Alpha-3
 ```
-1> iso_erlang:is_alpha_3(<<"USA">>).
+1> iso_erlang:is_country_alpha_3(<<"USA">>).
 true
-2> iso_erlang:is_alpha_3("USA").
+2> iso_erlang:is_country_alpha_3("USA").
 true
-3> iso_erlang:is_alpha_3(<<"Usa">>).
+3> iso_erlang:is_country_alpha_3(<<"Usa">>).
 true
-4> iso_erlang:is_alpha_3("usa").
+4> iso_erlang:is_country_alpha_3("usa").
 true
 ```
 ### Country (Checks for both ISO Alpha-2 and ISO Alpha-3)
@@ -48,22 +48,22 @@ true
 ```
 ### United Nations numerical code M49 for countries
 ```
-1> iso_erlang:to_numerical_code("US").
+1> iso_erlang:country_to_numerical_code("US").
 840
-2> iso_erlang:to_numerical_code("<<USA>>").
+2> iso_erlang:country_to_numerical_code("<<USA>>").
 840
 ```
 ### ISO Alpha-2
 ```
-1> iso_erlang:to_alpha_2("USA").
+1> iso_erlang:to_country_alpha_2("USA").
 <<"US">>
-2> iso_erlang:to_alpha_2("<<USA>>").
+2> iso_erlang:to_country_alpha_2("<<USA>>").
 <<"US">>
 ```
 ### ISO Alpha-3
 ```
-1> iso_erlang:to_alpha_3("US").
+1> iso_erlang:to_country_alpha_3("US").
 <<"USA">>
-2> iso_erlang:to_alpha_3("<<US>>").
+2> iso_erlang:to_country_alpha_3("<<US>>").
 <<"USA">>
 ```
