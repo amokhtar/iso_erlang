@@ -1,9 +1,8 @@
 %%%-------------------------------------------------------------------
-%%% @copyright (C) 2016, Vungle
 %%% @doc Returns list of all countries
 %%% @end
 %%%-------------------------------------------------------------------
--module(iso_erlang_lists).
+-module(iso_erlang_country_lists).
 
 %% API
 -export([

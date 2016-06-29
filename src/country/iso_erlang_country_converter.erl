@@ -1,4 +1,9 @@
--module(iso_erlang_converter).
+%%%-------------------------------------------------------------------
+%%% @doc Converts countries to and from alpha-2, alpha-3, numerical code
+%%%      and country name.
+%%% @end
+%%%-------------------------------------------------------------------
+-module(iso_erlang_country_converter).
 
 %% API
 -export([

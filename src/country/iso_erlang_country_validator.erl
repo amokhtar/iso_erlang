@@ -1,4 +1,8 @@
--module(iso_erlang_validator).
+%%%-------------------------------------------------------------------
+%%% @doc Validates countries in all their forms: alpha-2 and alpha-3
+%%% @end
+%%%-------------------------------------------------------------------
+-module(iso_erlang_country_validator).
 
 %% API
 -export([
