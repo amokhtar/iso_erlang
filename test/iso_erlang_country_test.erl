@@ -1,4 +1,4 @@
--module(iso_erlang_test).
+-module(iso_erlang_country_test).
 
 -compile(export_all).
 

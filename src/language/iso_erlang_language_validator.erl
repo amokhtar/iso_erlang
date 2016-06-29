@@ -7,7 +7,9 @@
 
 %% API
 -export([
-    is_language_upper/1
+    is_language_upper/1,
+    is_language_alpha_2_upper/1,
+    is_language_alpha_3_upper/1
 ]).
 
 %% @doc Checks if the given bitstring is a valid two letter language code (ISO alpha-2) OR
