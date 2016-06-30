@@ -63,35 +63,35 @@ get_country_count() -> 247.
 %%      to their numerical code equivalent.
 %% @end
 -spec country_to_numerical_code(bitstring() | string()) -> integer().
-country_to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:country_to_numerical_code_upper(normalize(Country)).
+country_to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:country_to_numerical_code_upper(to_upper(Country)).
 
 %% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
 %%      to Country names.
 %% @end
 -spec to_country_name(bitstring() | string()) -> bitstring().
-to_country_name(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:to_country_name_upper(normalize(Country)).
+to_country_name(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:to_country_name_upper(to_upper(Country)).
 
 %% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2) OR
 %%      a valid three letter country code (ISO alpha-3).
 %% @end
 -spec is_country(bitstring() | string()) -> boolean().
-is_country(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_validator:is_country_upper(normalize(Country)).
+is_country(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_validator:is_country_upper(to_upper(Country)).
 
 %% @doc Checks if the given bitstring is a valid three letter country code (ISO alpha-3).
 %% @end
 -spec is_country_alpha_3(bitstring() | string()) -> boolean().
-is_country_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_validator:is_country_alpha_3_upper(normalize(Country)).
+is_country_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_validator:is_country_alpha_3_upper(to_upper(Country)).
 
 %% @doc Checks if the given bitstring is a valid two letter country code (ISO alpha-2).
 %% @end
 -spec is_country_alpha_2(bitstring() | string()) -> boolean().
-is_country_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_validator:is_country_alpha_2_upper(normalize(Country)).
+is_country_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_validator:is_country_alpha_2_upper(to_upper(Country)).
 
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent three letter country code (ISO alpha-3)
 %% @end
 -spec to_country_alpha_3(bitstring() | string()) -> bitstring().
 to_country_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) ->
-    NormalizedCountry = normalize(Country),
+    NormalizedCountry = to_upper(Country),
     case is_country_alpha_3(NormalizedCountry) of
         true -> NormalizedCountry;
         false -> iso_erlang_country_converter:to_alpha_3_upper(NormalizedCountry)
@@ -101,7 +101,7 @@ to_country_alpha_3(Country) when is_list(Country) orelse is_bitstring(Country) -
 %% @end
 -spec to_country_alpha_2(bitstring() | string()) -> bitstring().
 to_country_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) ->
-    NormalizedCountry = normalize(Country),
+    NormalizedCountry = to_upper(Country),
     case is_country_alpha_2(NormalizedCountry) of
         true -> NormalizedCountry;
         false -> iso_erlang_country_converter:to_alpha_2_upper(NormalizedCountry)
@@ -110,24 +110,24 @@ to_country_alpha_2(Country) when is_list(Country) orelse is_bitstring(Country) -
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent country name
 %% @end
 -spec country_alpha_2_to_name(bitstring() | string()) -> bitstring().
-country_alpha_2_to_name(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:alpha_2_to_name_upper(normalize(Country)).
+country_alpha_2_to_name(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:alpha_2_to_name_upper(to_upper(Country)).
 
 %% @doc Converts three letter country code (ISO alpha-3) to the equivalent country name
 %% @end
 -spec country_alpha_3_to_name(bitstring() | string()) -> bitstring().
-country_alpha_3_to_name(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:alpha_3_to_name_upper(normalize(Country)).
+country_alpha_3_to_name(Country) when is_list(Country) orelse is_bitstring(Country) -> iso_erlang_country_converter:alpha_3_to_name_upper(to_upper(Country)).
 
 %% @doc Converts three letter country code (ISO alpha-3) to the equivalent United Nations numerical code M49 for countries.
 %% @end
 -spec country_alpha_3_to_numerical_code(bitstring() | string()) -> integer().
 country_alpha_3_to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) ->
-    iso_erlang_country_converter:alpha_3_to_numerical_code_upper(normalize(Country)).
+    iso_erlang_country_converter:alpha_3_to_numerical_code_upper(to_upper(Country)).
 
 %% @doc Converts two letter country code (ISO alpha-2) to the equivalent United Nations numerical code M49 for countries.
 %% @end
 -spec country_alpha_2_to_numerical_code(bitstring() | string()) -> integer().
 country_alpha_2_to_numerical_code(Country) when is_list(Country) orelse is_bitstring(Country) ->
-    iso_erlang_country_converter:alpha_2_to_numerical_code_upper(normalize(Country)).
+    iso_erlang_country_converter:alpha_2_to_numerical_code_upper(to_upper(Country)).
 
 %% @doc Returns a list of all countries in ISO alpha-2 format
 %% @end
@@ -151,23 +151,23 @@ get_language_name_list() ->
 %%      a valid three letter language code (ISO alpha-3).
 %% @end
 -spec is_language(bitstring() | string()) -> boolean().
-is_language(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_lower(normalize(Language)).
+is_language(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_lower(to_lower(Language)).
 
 %% @doc Checks if the given bitstring is a valid three letter language code (ISO alpha-3).
 %% @end
 -spec is_language_alpha_3(bitstring() | string()) -> boolean().
-is_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_3_lower(normalize(Language)).
+is_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_3_lower(to_lower(Language)).
 
 %% @doc Checks if the given bitstring is a valid two letter language code (ISO alpha-2).
 %% @end
 -spec is_language_alpha_2(bitstring() | string()) -> boolean().
-is_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_2_lower(normalize(Language)).
+is_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_2_lower(to_lower(Language)).
 
 %% @doc Converts two letter Language code (ISO alpha-2) to the equivalent three letter Language code (ISO alpha-3)
 %% @end
 -spec to_language_alpha_3(bitstring() | string()) -> bitstring().
 to_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Language) ->
-    NormalizedLanguage = normalize(Language),
+    NormalizedLanguage = to_lower(Language),
     case is_language_alpha_3(NormalizedLanguage) of
         true -> NormalizedLanguage;
         false -> iso_erlang_language_converter:to_alpha_3_lower(NormalizedLanguage)
@@ -177,7 +177,7 @@ to_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Languag
 %% @end
 -spec to_language_alpha_2(bitstring() | string()) -> bitstring().
 to_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Language) ->
-    NormalizedLanguage = normalize(Language),
+    NormalizedLanguage = to_lower(Language),
     case is_language_alpha_2(NormalizedLanguage) of
         true -> NormalizedLanguage;
         false -> iso_erlang_language_converter:to_alpha_2_lower(NormalizedLanguage)
@@ -187,19 +187,24 @@ to_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Languag
 %%      to language names.
 %% @end
 -spec to_language_name(bitstring() | string()) -> bitstring().
-to_language_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:to_language_name_lower(normalize(Language)).
+to_language_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:to_language_name_lower(to_lower(Language)).
 
 %% @doc Converts two letter language code (ISO alpha-2) to the equivalent language name
 %% @end
 -spec language_alpha_2_to_name(bitstring() | string()) -> bitstring().
-language_alpha_2_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_2_to_name_lower(normalize(Language)).
+language_alpha_2_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_2_to_name_lower(to_lower(Language)).
 
 %% @doc Converts three letter language code (ISO alpha-3) to the equivalent language name
 %% @end
 -spec language_alpha_3_to_name(bitstring() | string()) -> bitstring().
-language_alpha_3_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_3_to_name_lower(normalize(Language)).
+language_alpha_3_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_3_to_name_lower(to_lower(Language)).
 
-normalize(String) when is_list(String) ->
+to_upper(String) when is_list(String) ->
     list_to_bitstring(string:to_upper(String));
-normalize(Bitstring) when is_bitstring(Bitstring) ->
+to_upper(Bitstring) when is_bitstring(Bitstring) ->
     <<<<(string:to_upper(X))>> || <<X>> <= Bitstring>>.
+
+to_lower(String) when is_list(String) ->
+    list_to_bitstring(string:to_lower(String));
+to_lower(Bitstring) when is_bitstring(Bitstring) ->
+    <<<<(string:to_lower(X))>> || <<X>> <= Bitstring>>.

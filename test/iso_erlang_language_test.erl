@@ -50,16 +50,16 @@ is_language_false_test() ->
     ?assertEqual(false, iso_erlang:is_language("UadfsSs")).
 
 to_alpha_2_correct_test() ->
-    ?assertEqual(<<"EN">>, iso_erlang:to_language_alpha_2(<<"ENG">>)),
-    ?assertEqual(<<"FR">>, iso_erlang:to_language_alpha_2(<<"FRA">>)),
-    ?assertEqual(<<"EN">>, iso_erlang:to_language_alpha_2("ENG")),
-    ?assertEqual(<<"FR">>, iso_erlang:to_language_alpha_2("FRE")).
+    ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2(<<"ENG">>)),
+    ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2(<<"FRA">>)),
+    ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2("ENG")),
+    ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2("FRE")).
 
 to_alpha_2_already_correct_test() ->
-    ?assertEqual(<<"EN">>, iso_erlang:to_language_alpha_2(<<"EN">>)),
-    ?assertEqual(<<"FR">>, iso_erlang:to_language_alpha_2(<<"FR">>)),
-    ?assertEqual(<<"EN">>, iso_erlang:to_language_alpha_2("EN")),
-    ?assertEqual(<<"FR">>, iso_erlang:to_language_alpha_2("FR")).
+    ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2(<<"EN">>)),
+    ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2(<<"FR">>)),
+    ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2("EN")),
+    ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2("FR")).
 
 to_alpha_2_incorrect_test() ->
     ?assertError(_, iso_erlang:to_language_alpha_2(<<"EGR">>)),
@@ -68,16 +68,16 @@ to_alpha_2_incorrect_test() ->
     ?assertError(_, iso_erlang:to_language_alpha_2("AAA")).
 
 to_alpha_3_correct_test() ->
-    ?assertEqual(<<"ENG">>, iso_erlang:to_language_alpha_3(<<"EN">>)),
-    ?assertEqual(<<"FRA">>, iso_erlang:to_language_alpha_3(<<"FR">>)),
-    ?assertEqual(<<"ENG">>, iso_erlang:to_language_alpha_3("EN")),
-    ?assertEqual(<<"FRA">>, iso_erlang:to_language_alpha_3("FR")).
+    ?assertEqual(<<"eng">>, iso_erlang:to_language_alpha_3(<<"EN">>)),
+    ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3(<<"FR">>)),
+    ?assertEqual(<<"eng">>, iso_erlang:to_language_alpha_3("EN")),
+    ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3("FR")).
 
 to_alpha_3_already_correct_test() ->
-    ?assertEqual(<<"ENG">>, iso_erlang:to_language_alpha_3(<<"ENG">>)),
-    ?assertEqual(<<"FRA">>, iso_erlang:to_language_alpha_3(<<"FRA">>)),
-    ?assertEqual(<<"ENG">>, iso_erlang:to_language_alpha_3("ENG")),
-    ?assertEqual(<<"FRA">>, iso_erlang:to_language_alpha_3("FRA")).
+    ?assertEqual(<<"eng">>, iso_erlang:to_language_alpha_3(<<"ENG">>)),
+    ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3(<<"FRA">>)),
+    ?assertEqual(<<"eng">>, iso_erlang:to_language_alpha_3("ENG")),
+    ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3("FRA")).
 
 to_alpha_3_incorrect_test() ->
     ?assertError(_, iso_erlang:to_language_alpha_3(<<"EGR">>)),
@@ -124,12 +124,6 @@ to_language_name_incorrect_test() ->
     ?assertError(_, iso_erlang:to_language_name(<<"AAA">>)),
     ?assertError(_, iso_erlang:to_language_name("ABC")),
     ?assertError(_, iso_erlang:to_language_name("AAA")).
-
-normalize_test() ->
-    ?assertEqual(<<"HELLO">>, iso_erlang:normalize(<<"Hello">>)),
-    ?assertEqual(<<"HELLO">>, iso_erlang:normalize(<<"HeLlO">>)),
-    ?assertEqual(<<"HELLO">>, iso_erlang:normalize("hello")),
-    ?assertEqual(<<"HELLO">>, iso_erlang:normalize("HeLlO")).
 
 get_language_lists_test() ->
     ?assertEqual(184, length(iso_erlang:get_alpha_2_language_list())),
