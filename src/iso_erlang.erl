@@ -170,7 +170,7 @@ to_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Languag
     NormalizedLanguage = normalize(Language),
     case is_language_alpha_3(NormalizedLanguage) of
         true -> NormalizedLanguage;
-        false -> iso_erlang_language_converter:to_alpha_3_upper(NormalizedLanguage)
+        false -> iso_erlang_language_converter:to_alpha_3_lower(NormalizedLanguage)
     end.
 
 %% @doc Converts three letter Language code (ISO alpha-3) to the equivalent two letter Language code (ISO alpha-2)
@@ -180,24 +180,24 @@ to_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Languag
     NormalizedLanguage = normalize(Language),
     case is_language_alpha_2(NormalizedLanguage) of
         true -> NormalizedLanguage;
-        false -> iso_erlang_language_converter:to_alpha_2_upper(NormalizedLanguage)
+        false -> iso_erlang_language_converter:to_alpha_2_lower(NormalizedLanguage)
     end.
 
 %% @doc Converts two letter language codes (ISO alpha-2) and the three letter language codes (ISO alpha-3)
 %%      to language names.
 %% @end
 -spec to_language_name(bitstring() | string()) -> bitstring().
-to_language_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:to_language_name_upper(normalize(Language)).
+to_language_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:to_language_name_lower(normalize(Language)).
 
 %% @doc Converts two letter language code (ISO alpha-2) to the equivalent language name
 %% @end
 -spec language_alpha_2_to_name(bitstring() | string()) -> bitstring().
-language_alpha_2_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_2_to_name_upper(normalize(Language)).
+language_alpha_2_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_2_to_name_lower(normalize(Language)).
 
 %% @doc Converts three letter language code (ISO alpha-3) to the equivalent language name
 %% @end
 -spec language_alpha_3_to_name(bitstring() | string()) -> bitstring().
-language_alpha_3_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_3_to_name_upper(normalize(Language)).
+language_alpha_3_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_3_to_name_lower(normalize(Language)).
 
 normalize(String) when is_list(String) ->
     list_to_bitstring(string:to_upper(String));
