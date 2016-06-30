@@ -99,9 +99,9 @@ true
 2> iso_erlang:to_country_alpha_2(<<"USA">>).
 <<"US">>
 3> iso_erlang:to_language_alpha_2("ENG").
-<<"EN">>
+<<"en">>
 4> iso_erlang:to_language_alpha_2(<<"ENG">>).
-<<"EN">>
+<<"en">>
 ```
 ### ISO Alpha-3
 ```
@@ -110,7 +110,7 @@ true
 2> iso_erlang:to_country_alpha_3(<<"US">>).
 <<"USA">>
 3> iso_erlang:to_language_alpha_3("EN").
-<<"ENG">>
+<<"eng">>
 3> iso_erlang:to_language_alpha_3(<<"EN">>).
-<<"ENG">>
+<<"eng">>
 ```
