@@ -15,6 +15,14 @@ true
 true
 4> iso_erlang:is_country_alpha_2("us").
 true
+5> iso_erlang:is_language_alpha_2(<<"EN">>).
+true
+6> iso_erlang:is_language_alpha_2("eN").
+true
+7> iso_erlang:is_language_alpha_2(<<"En">>).
+true
+8> iso_erlang:is_language_alpha_2("en").
+true
 ```
 ### ISO Alpha-3
 ```
@@ -25,6 +33,14 @@ true
 3> iso_erlang:is_country_alpha_3(<<"Usa">>).
 true
 4> iso_erlang:is_country_alpha_3("usa").
+true
+5> iso_erlang:is_language_alpha_3(<<"ENG">>).
+true
+6> iso_erlang:is_language_alpha_3("ENG").
+true
+7> iso_erlang:is_language_alpha_3(<<"Eng">>).
+true
+8> iso_erlang:is_language_alpha_3("eng").
 true
 ```
 ### Country (Checks for both ISO Alpha-2 and ISO Alpha-3)
@@ -38,6 +54,17 @@ true
 4> iso_erlang:is_country("us").
 true
 ```
+### Language (Checks for both ISO Alpha-2 and ISO Alpha-3)
+```
+1> iso_erlang:is_language(<<"En">>).
+true
+2> iso_erlang:is_language("Eng").
+true
+3> iso_erlang:is_language(<<"Eng">>).
+true
+4> iso_erlang:is_language("en").
+true
+```
 ## Conversion
 ### Country name
 ```
@@ -46,24 +73,38 @@ true
 2> iso_erlang:to_country_name(<<"USA">>).
 <<"United States of America">>
 ```
+### Language name
+```
+1> iso_erlang:to_language_name("EN").
+<<"English">>
+```
+
 ### United Nations numerical code M49 for countries
 ```
 1> iso_erlang:country_to_numerical_code("US").
 840
-2> iso_erlang:country_to_numerical_code("<<USA>>").
+2> iso_erlang:country_to_numerical_code(<<"USA">>).
 840
 ```
 ### ISO Alpha-2
 ```
 1> iso_erlang:to_country_alpha_2("USA").
 <<"US">>
-2> iso_erlang:to_country_alpha_2("<<USA>>").
+2> iso_erlang:to_country_alpha_2(<<"USA">>).
 <<"US">>
+3> iso_erlang:to_language_alpha_2("ENG").
+<<"EN">>
+4> iso_erlang:to_language_alpha_2(<<"ENG">>).
+<<"EN">>
 ```
 ### ISO Alpha-3
 ```
 1> iso_erlang:to_country_alpha_3("US").
 <<"USA">>
-2> iso_erlang:to_country_alpha_3("<<US>>").
+2> iso_erlang:to_country_alpha_3(<<"US">>).
 <<"USA">>
+3> iso_erlang:to_language_alpha_3("EN").
+<<"ENG">>
+3> iso_erlang:to_language_alpha_3(<<"EN">>).
+<<"ENG">>
 ```
