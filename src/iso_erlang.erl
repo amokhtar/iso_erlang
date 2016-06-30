@@ -151,17 +151,17 @@ get_language_name_list() ->
 %%      a valid three letter language code (ISO alpha-3).
 %% @end
 -spec is_language(bitstring() | string()) -> boolean().
-is_language(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_upper(normalize(Language)).
+is_language(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_lower(normalize(Language)).
 
 %% @doc Checks if the given bitstring is a valid three letter language code (ISO alpha-3).
 %% @end
 -spec is_language_alpha_3(bitstring() | string()) -> boolean().
-is_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_3_upper(normalize(Language)).
+is_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_3_lower(normalize(Language)).
 
 %% @doc Checks if the given bitstring is a valid two letter language code (ISO alpha-2).
 %% @end
 -spec is_language_alpha_2(bitstring() | string()) -> boolean().
-is_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_2_upper(normalize(Language)).
+is_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_validator:is_language_alpha_2_lower(normalize(Language)).
 
 %% @doc Converts two letter Language code (ISO alpha-2) to the equivalent three letter Language code (ISO alpha-3)
 %% @end
