@@ -172,7 +172,7 @@ is_country_false_test() ->
 %%    ?assertEqual(<<"HELLO">>, iso_erlang:normalize("hello")),
 %%    ?assertEqual(<<"HELLO">>, iso_erlang:normalize("HeLlO")).
 %%
-%%get_country_lists_test() ->
-%%    ?assertEqual(247, length(iso_erlang:get_alpha_2_country_list())),
-%%    ?assertEqual(247, length(iso_erlang:get_alpha_3_country_list())),
-%%    ?assertEqual(247, length(iso_erlang:get_country_name_list())).
+get_language_lists_test() ->
+    ?assertEqual(184, length(iso_erlang:get_alpha_2_language_list())),
+    ?assertEqual(488, length(iso_erlang:get_alpha_3_language_list())),
+    ?assertEqual(565, length(iso_erlang:get_language_name_list())).
