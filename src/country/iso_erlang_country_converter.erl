@@ -1189,7 +1189,6 @@ alpha_3_to_numerical_code_upper(<<"NAM">>) -> 516;
 alpha_3_to_numerical_code_upper(<<"NRU">>) -> 520;
 alpha_3_to_numerical_code_upper(<<"NPL">>) -> 524;
 alpha_3_to_numerical_code_upper(<<"NLD">>) -> 528;
-alpha_3_to_numerical_code_upper(<<"ANT">>) -> 530;
 alpha_3_to_numerical_code_upper(<<"NCL">>) -> 540;
 alpha_3_to_numerical_code_upper(<<"NZL">>) -> 554;
 alpha_3_to_numerical_code_upper(<<"NIC">>) -> 558;
