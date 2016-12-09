@@ -1,6 +1,6 @@
 {application, iso_erlang,
     [{description, "Fast case-insensitive validation and conversion between ISO Alpha-2, Alpha-3, and Numeric Country Codes."},
-     {vsn, "0.8.1"},
+     {vsn, "0.9.0"},
      {registered, []},
      {applications, [
          kernel,
