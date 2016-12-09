@@ -57,7 +57,7 @@ get_country_name_list() ->
 %% @doc Returns the number of countries
 %% @end
 -spec get_country_count() -> integer().
-get_country_count() -> 247.
+get_country_count() -> 249.
 
 %% @doc Converts two letter country codes (ISO alpha-2) and the three letter country codes (ISO alpha-3)
 %%      to their numerical code equivalent.

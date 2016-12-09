@@ -171,6 +171,6 @@ to_numerical_code_incorrect_test() ->
     ?assertError(_, iso_erlang:country_to_numerical_code("sUS")).
 
 get_country_lists_test() ->
-    ?assertEqual(247, length(iso_erlang:get_alpha_2_country_list())),
-    ?assertEqual(247, length(iso_erlang:get_alpha_3_country_list())),
-    ?assertEqual(247, length(iso_erlang:get_country_name_list())).
+    ?assertEqual(249, length(iso_erlang:get_alpha_2_country_list())),
+    ?assertEqual(249, length(iso_erlang:get_alpha_3_country_list())),
+    ?assertEqual(249, length(iso_erlang:get_country_name_list())).
