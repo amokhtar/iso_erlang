@@ -938,7 +938,6 @@ alpha_3_to_name_upper(<<"NAM">>) -> <<"Namibia"/utf8>>;
 alpha_3_to_name_upper(<<"NRU">>) -> <<"Nauru"/utf8>>;
 alpha_3_to_name_upper(<<"NPL">>) -> <<"Nepal"/utf8>>;
 alpha_3_to_name_upper(<<"NLD">>) -> <<"Netherlands"/utf8>>;
-alpha_3_to_name_upper(<<"ANT">>) -> <<"Netherlands Antilles"/utf8>>;
 alpha_3_to_name_upper(<<"NCL">>) -> <<"New Caledonia"/utf8>>;
 alpha_3_to_name_upper(<<"NZL">>) -> <<"New Zealand"/utf8>>;
 alpha_3_to_name_upper(<<"NIC">>) -> <<"Nicaragua"/utf8>>;
