@@ -81,6 +81,9 @@ is_language_false_test() ->
 to_alpha_2_correct_test() ->
     ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2(<<"ENG">>)),
     ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2(<<"FRA">>)),
+    ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2(<<"FRA-ssf">>)),
+    ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2("ENG-gb")),
+    ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2("ENG-sjkl")),
     ?assertEqual(<<"en">>, iso_erlang:to_language_alpha_2("ENG")),
     ?assertEqual(<<"fr">>, iso_erlang:to_language_alpha_2("FRE")).
 
@@ -93,12 +96,16 @@ to_alpha_2_already_correct_test() ->
 to_alpha_2_incorrect_test() ->
     ?assertError(_, iso_erlang:to_language_alpha_2(<<"EGR">>)),
     ?assertError(_, iso_erlang:to_language_alpha_2(<<"AAA">>)),
+    ?assertError(_, iso_erlang:to_language_alpha_2(<<"XX-asdf">>)),
     ?assertError(_, iso_erlang:to_language_alpha_2("EGs")),
+    ?assertError(_, iso_erlang:to_language_alpha_2("EGdfgjs")),
     ?assertError(_, iso_erlang:to_language_alpha_2("AAA")).
 
 to_alpha_3_correct_test() ->
     ?assertEqual(<<"eng">>, iso_erlang:to_language_alpha_3(<<"EN">>)),
     ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3(<<"FR">>)),
+    ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3(<<"FR-ad">>)),
+    ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3(<<"FRA-dfsa">>)),
     ?assertEqual(<<"eng">>, iso_erlang:to_language_alpha_3("EN")),
     ?assertEqual(<<"fra">>, iso_erlang:to_language_alpha_3("FR")).
 
@@ -110,6 +117,9 @@ to_alpha_3_already_correct_test() ->
 
 to_alpha_3_incorrect_test() ->
     ?assertError(_, iso_erlang:to_language_alpha_3(<<"EGR">>)),
+    ?assertError(_, iso_erlang:to_language_alpha_3(<<"AAA">>)),
+    ?assertError(_, iso_erlang:to_language_alpha_3(<<"F-asfd">>)),
+    ?assertError(_, iso_erlang:to_language_alpha_3(<<"Fran-asfd">>)),
     ?assertError(_, iso_erlang:to_language_alpha_3(<<"AAA">>)),
     ?assertError(_, iso_erlang:to_language_alpha_3("EGs")),
     ?assertError(_, iso_erlang:to_language_alpha_3("AAA")).

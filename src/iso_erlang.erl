@@ -162,18 +162,11 @@ is_language(Language) when is_list(Language) orelse is_bitstring(Language) -> is
 %% @end
 -spec is_convertible_language(bitstring() | string()) -> boolean().
 is_convertible_language(Language) when is_list(Language) orelse is_bitstring(Language) ->
-    NormalizedLanguage = to_lower(Language),
-    case NormalizedLanguage of
-        <<_FirstLetter:8/bitstring, _SecondLetter:8/bitstring>> ->
-            iso_erlang_language_validator:is_language_lower(NormalizedLanguage);
-        <<_FirstLetter:8/bitstring, _SecondLetter:8/bitstring, _ThirdLetter:8/bitstring>> ->
-            iso_erlang_language_validator:is_language_lower(NormalizedLanguage);
-        <<LanguageCode:16/bitstring, $-, _Rest/bitstring>> ->
-            iso_erlang_language_validator:is_language_lower(LanguageCode);
-        <<LanguageCode:24/bitstring, $-, _Rest/bitstring>> ->
-            iso_erlang_language_validator:is_language_lower(LanguageCode);
-        _InvalidFormat ->
-            false
+    case normalize_language(Language) of
+        error ->
+            false;
+        ValidLanguage ->
+            iso_erlang_language_validator:is_language_lower(ValidLanguage)
     end.
 
 %% @doc Checks if the given bitstring/string is a valid three letter language code (ISO alpha-3).
@@ -190,7 +183,7 @@ is_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Languag
 %% @end
 -spec to_language_alpha_3(bitstring() | string()) -> bitstring().
 to_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Language) ->
-    NormalizedLanguage = to_lower(Language),
+    NormalizedLanguage = normalize_language(Language),
     case is_language_alpha_3(NormalizedLanguage) of
         true ->
             NormalizedLanguage;
@@ -202,7 +195,7 @@ to_language_alpha_3(Language) when is_list(Language) orelse is_bitstring(Languag
 %% @end
 -spec to_language_alpha_2(bitstring() | string()) -> bitstring().
 to_language_alpha_2(Language) when is_list(Language) orelse is_bitstring(Language) ->
-    NormalizedLanguage = to_lower(Language),
+    NormalizedLanguage = normalize_language(Language),
     case is_language_alpha_2(NormalizedLanguage) of
         true ->
             NormalizedLanguage;
@@ -226,12 +219,26 @@ language_alpha_2_to_name(Language) when is_list(Language) orelse is_bitstring(La
 -spec language_alpha_3_to_name(bitstring() | string()) -> bitstring().
 language_alpha_3_to_name(Language) when is_list(Language) orelse is_bitstring(Language) -> iso_erlang_language_converter:alpha_3_to_name_lower(to_lower(Language)).
 
+-spec to_upper(bitstring() | string()) -> bitstring().
 to_upper(String) when is_list(String) ->
     list_to_bitstring(string:to_upper(String));
 to_upper(Bitstring) when is_bitstring(Bitstring) ->
     <<<<(string:to_upper(X))>> || <<X>> <= Bitstring>>.
 
+-spec to_lower(bitstring() | string()) -> bitstring().
 to_lower(String) when is_list(String) ->
     list_to_bitstring(string:to_lower(String));
 to_lower(Bitstring) when is_bitstring(Bitstring) ->
     <<<<(string:to_lower(X))>> || <<X>> <= Bitstring>>.
+
+-spec normalize_language(bitstring() | string()) -> bitstring() | error.
+normalize_language(Language) when is_bitstring(Language) orelse is_list(Language) ->
+    remove_dialect(to_lower(Language)).
+
+-spec remove_dialect(bitstring()) -> bitstring() | error.
+remove_dialect(<<Alpha2:16/bitstring>>) -> Alpha2;
+remove_dialect(<<Alpha3:24/bitstring>>) -> Alpha3;
+remove_dialect(<<Alpha2:16/bitstring, $-, _Rest/bitstring>>) -> Alpha2;
+remove_dialect(<<Alpha3:24/bitstring, $-, _Rest/bitstring>>) -> Alpha3;
+remove_dialect(_InvalidCode) -> error.
+
