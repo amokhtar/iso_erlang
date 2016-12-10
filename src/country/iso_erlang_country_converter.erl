@@ -593,7 +593,7 @@ alpha_2_to_name_upper(<<"CV">>) -> <<"Cape Verde"/utf8>>;
 alpha_2_to_name_upper(<<"CW">>) -> <<"Curaçao"/utf8>>;
 alpha_2_to_name_upper(<<"CX">>) -> <<"Christmas Island"/utf8>>;
 alpha_2_to_name_upper(<<"CY">>) -> <<"Cyprus"/utf8>>;
-alpha_2_to_name_upper(<<"CZ">>) -> <<"Czech Republic"/utf8>>;
+alpha_2_to_name_upper(<<"CZ">>) -> <<"Czechia"/utf8>>;
 alpha_2_to_name_upper(<<"DE">>) -> <<"Germany"/utf8>>;
 alpha_2_to_name_upper(<<"DJ">>) -> <<"Djibouti"/utf8>>;
 alpha_2_to_name_upper(<<"DK">>) -> <<"Denmark"/utf8>>;
@@ -849,7 +849,7 @@ alpha_3_to_name_upper(<<"CUW">>) -> <<"Curaçao"/utf8>>;
 alpha_3_to_name_upper(<<"CXR">>) -> <<"Christmas Island"/utf8>>;
 alpha_3_to_name_upper(<<"CYM">>) -> <<"Cayman Islands"/utf8>>;
 alpha_3_to_name_upper(<<"CYP">>) -> <<"Cyprus"/utf8>>;
-alpha_3_to_name_upper(<<"CZE">>) -> <<"Czech Republic"/utf8>>;
+alpha_3_to_name_upper(<<"CZE">>) -> <<"Czechia"/utf8>>;
 alpha_3_to_name_upper(<<"DEU">>) -> <<"Germany"/utf8>>;
 alpha_3_to_name_upper(<<"DJI">>) -> <<"Djibouti"/utf8>>;
 alpha_3_to_name_upper(<<"DMA">>) -> <<"Dominica"/utf8>>;
@@ -1546,7 +1546,3 @@ alpha_2_to_numerical_code_upper(<<"YT">>) -> 175;
 alpha_2_to_numerical_code_upper(<<"ZA">>) -> 710;
 alpha_2_to_numerical_code_upper(<<"ZM">>) -> 894;
 alpha_2_to_numerical_code_upper(<<"ZW">>) -> 716.
-
-
-
-

@@ -572,7 +572,7 @@ get_country_name_list() ->
      <<"Cuba"/utf8>>,
      <<"Curaçao"/utf8>>,
      <<"Cyprus"/utf8>>,
-     <<"Czech Republic"/utf8>>,
+     <<"Czechia"/utf8>>,
      <<"Côte d'Ivoire"/utf8>>,
      <<"Democratic People's Republic of Korea"/utf8>>,
      <<"Congo, the Democratic Republic of the"/utf8>>,
