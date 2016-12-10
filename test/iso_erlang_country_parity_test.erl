@@ -5,6 +5,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 country_parity_test() ->
+    %% Data pulled from https://www.iso.org/obp/ui/#search/code/
     CountryList = [#{name => <<"Afghanistan"/utf8>>, alpha2 => <<"AF">>, alpha3 => <<"AFG">>, numerical_code => 4},
                    #{name => <<"Aland Islands"/utf8>>, alpha2 => <<"AX">>, alpha3 => <<"ALA">>, numerical_code => 248},
                    #{name => <<"Albania"/utf8>>, alpha2 => <<"AL">>, alpha3 => <<"ALB">>, numerical_code => 8},
