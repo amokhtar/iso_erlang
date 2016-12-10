@@ -44,6 +44,35 @@ is_language_true_test() ->
     ?assertEqual(true, iso_erlang:is_language("En")),
     ?assertEqual(true, iso_erlang:is_language("fR")).
 
+is_convertible_language_valid_true_test() ->
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"ENG">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"DZO">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"FAS">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language("FRE")),
+    ?assertEqual(true, iso_erlang:is_convertible_language("fra")),
+    ?assertEqual(true, iso_erlang:is_convertible_language("ChV")),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"FR">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"EN">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"en">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language("En")),
+    ?assertEqual(true, iso_erlang:is_convertible_language("zh-hans")),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"zh-hans">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language("pt-br")),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"pt-br">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language("es-la")),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"es-la">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"fre-la">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language("zh-hant")),
+    ?assertEqual(true, iso_erlang:is_convertible_language(<<"zh-hant">>)),
+    ?assertEqual(true, iso_erlang:is_convertible_language("fR")).
+
+is_convertible_language_false_test() ->
+    ?assertEqual(false, iso_erlang:is_convertible_language(<<"EGGEGG">>)),
+    ?assertEqual(false, iso_erlang:is_convertible_language(<<"XXG-EGG">>)),
+    ?assertEqual(false, iso_erlang:is_convertible_language(<<"XX-GEGG">>)),
+    ?assertEqual(false, iso_erlang:is_convertible_language(<<"">>)),
+    ?assertEqual(false, iso_erlang:is_convertible_language("UadfsSs")).
+
 is_language_false_test() ->
     ?assertEqual(false, iso_erlang:is_language(<<"EGGEGG">>)),
     ?assertEqual(false, iso_erlang:is_language(<<"">>)),
