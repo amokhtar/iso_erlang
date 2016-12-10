@@ -92,9 +92,9 @@ to_alpha_3_incorrect_test() ->
 
 alpha_2_to_name_correct_test() ->
     ?assertEqual(<<"Egypt">>, iso_erlang:country_alpha_2_to_name(<<"EG">>)),
-    ?assertEqual(<<"United States of America">>, iso_erlang:country_alpha_2_to_name(<<"US">>)),
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:country_alpha_2_to_name(<<"US">>)),
     ?assertEqual(<<"Egypt">>, iso_erlang:country_alpha_2_to_name("EG")),
-    ?assertEqual(<<"United States of America">>, iso_erlang:country_alpha_2_to_name("US")).
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:country_alpha_2_to_name("US")).
 
 alpha_2_to_name_incorrect_test() ->
     ?assertError(_, iso_erlang:country_alpha_2_to_name(<<"EGY">>)),
@@ -104,9 +104,9 @@ alpha_2_to_name_incorrect_test() ->
 
 alpha_3_to_name_correct_test() ->
     ?assertEqual(<<"Egypt">>, iso_erlang:country_alpha_3_to_name(<<"EGY">>)),
-    ?assertEqual(<<"United States of America">>, iso_erlang:country_alpha_3_to_name(<<"USA">>)),
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:country_alpha_3_to_name(<<"USA">>)),
     ?assertEqual(<<"Egypt">>, iso_erlang:country_alpha_3_to_name("EGY")),
-    ?assertEqual(<<"United States of America">>, iso_erlang:country_alpha_3_to_name("USA")).
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:country_alpha_3_to_name("USA")).
 
 alpha_3_to_name_incorrect_test() ->
     ?assertError(_, iso_erlang:country_alpha_3_to_name(<<"EG">>)),
@@ -116,13 +116,13 @@ alpha_3_to_name_incorrect_test() ->
 
 to_country_name_correct_test() ->
     ?assertEqual(<<"Egypt">>, iso_erlang:to_country_name(<<"EGY">>)),
-    ?assertEqual(<<"United States of America">>, iso_erlang:to_country_name(<<"USA">>)),
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:to_country_name(<<"USA">>)),
     ?assertEqual(<<"Egypt">>, iso_erlang:to_country_name("EGY")),
-    ?assertEqual(<<"United States of America">>, iso_erlang:to_country_name("USA")),
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:to_country_name("USA")),
     ?assertEqual(<<"Egypt">>, iso_erlang:to_country_name(<<"EG">>)),
-    ?assertEqual(<<"United States of America">>, iso_erlang:to_country_name(<<"US">>)),
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:to_country_name(<<"US">>)),
     ?assertEqual(<<"Egypt">>, iso_erlang:to_country_name("EG")),
-    ?assertEqual(<<"United States of America">>, iso_erlang:to_country_name("US")).
+    ?assertEqual(<<"United States of America (the)">>, iso_erlang:to_country_name("US")).
 
 to_country_name_incorrect_test() ->
     ?assertError(_, iso_erlang:to_country_name(<<"ABC">>)),
