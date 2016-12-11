@@ -71,6 +71,18 @@ true
 4> iso_erlang:is_language("en").
 true
 ```
+### Language normalization (Checks for both ISO Alpha-2 and ISO Alpha-3)
+This function assesses if the given input can be converted into a valid ISO language
+```
+1> iso_erlang:is_convertible_language(<<"zh-hans">>).
+true
+2> iso_erlang:is_convertible_language("pt-br").
+true
+3> iso_erlang:is_convertible_language(<<"es-la">>).
+true
+4> iso_erlang:is_convertible_language("zh-hant").
+true
+```
 ## Conversion
 ### Country name
 ```
