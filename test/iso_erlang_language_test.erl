@@ -168,3 +168,8 @@ get_language_lists_test() ->
     ?assertEqual(184, length(iso_erlang:get_alpha_2_language_list())),
     ?assertEqual(488, length(iso_erlang:get_alpha_3_language_list())),
     ?assertEqual(565, length(iso_erlang:get_language_name_list())).
+
+ordsets_test() ->
+    ?assertEqual(ordsets:from_list(iso_erlang:get_alpha_2_language_list()), iso_erlang:get_alpha_2_language_list()),
+    ?assertEqual(ordsets:from_list(iso_erlang:get_alpha_3_language_list()), iso_erlang:get_alpha_3_language_list()),
+    ?assertEqual(ordsets:from_list(iso_erlang:get_language_name_list()), iso_erlang:get_language_name_list()).
