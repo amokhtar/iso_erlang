@@ -174,3 +174,8 @@ get_country_lists_test() ->
     ?assertEqual(249, length(iso_erlang:get_alpha_2_country_list())),
     ?assertEqual(249, length(iso_erlang:get_alpha_3_country_list())),
     ?assertEqual(249, length(iso_erlang:get_country_name_list())).
+
+ordsets_test() ->
+    ?assertEqual(ordsets:from_list(iso_erlang:get_alpha_2_country_list()), iso_erlang:get_alpha_2_country_list()),
+    ?assertEqual(ordsets:from_list(iso_erlang:get_alpha_3_country_list()), iso_erlang:get_alpha_3_country_list()),
+    ?assertEqual(ordsets:from_list(iso_erlang:get_country_name_list()), iso_erlang:get_country_name_list()).
