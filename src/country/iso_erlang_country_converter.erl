@@ -1546,7 +1546,3 @@ alpha_2_to_numerical_code_upper(<<"YT">>) -> 175;
 alpha_2_to_numerical_code_upper(<<"ZA">>) -> 710;
 alpha_2_to_numerical_code_upper(<<"ZM">>) -> 894;
 alpha_2_to_numerical_code_upper(<<"ZW">>) -> 716.
-
-
-
-
