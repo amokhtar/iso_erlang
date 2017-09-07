@@ -1,4 +1,4 @@
-# iso_erlang
+# iso_erlang [![Hex.pm](https://img.shields.io/hexpm/v/iso_erlang.svg)](https://hex.pm/packages/iso_erlang)
 This erlang package allows for fast case-insensitive validation and conversion between ISO Alpha-2, Alpha-3, and Numeric Country Codes.
 It is a partial implementation of ISO conversion and validation. 
 
